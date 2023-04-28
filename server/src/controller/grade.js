@@ -20,36 +20,27 @@ module.exports = {
         .getRepository(Grade)
         .save({ grade: req.body.grade, skill: skillFromDB, wilder: wilderFromDB });
 
-      res.send("Created Grade");
+      res.status(200).send("Created Grade");
     } catch (error) {
-      res.send("Error while creating Grade:", error);
+      res.status(500).send({ message: `Error while creating grade: ${error}` });
     }
   },
   read: async (req, res) => {
     try {
       const gradeFromDB = await dataSource.getRepository(Grade).find();
 
-      res.send(gradeFromDB);
+      res.status(200).send(gradeFromDB);
     } catch (error) {
-      res.send("Error while getting Grades");
+      res.status(500).send({ message: `Error while updating wilder: ${error}` });
     }
   },
-  //   update: async (req, res) => {
-  //     try {
-  //       await dataSource.getRepository(Grade).update(req.body.id, req.body.newData);
+  delete: async (req, res) => {
+    try {
+      await dataSource.getRepository(Grade).delete(req.params.id);
 
-  //       res.send("Grade Updated");
-  //     } catch (error) {
-  //       res.send("Error while deleting Grade");
-  //     }
-  //   },
-  //   delete: (req, res) => {
-  //     try {
-  //       dataSource.getRepository(Grade).delete(req.body);
-
-  //       res.send("Grade Deleted");
-  //     } catch (error) {
-  //       res.send("Error while deleting Grade");
-  //     }
-  //   },
+      res.status(200).send("Grade Deleted");
+    } catch (error) {
+      res.status(500).send({ message: `Error while deleting grade: ${error}` });
+    }
+  },
 };

@@ -6,36 +6,36 @@ module.exports = {
     try {
       await dataSource.getRepository(Skill).save(req.body);
 
-      res.send("Created Skill");
+      res.status(200).send("Created Skill");
     } catch (error) {
-      res.send("Error while creating Skill");
+      res.status(500).send({ message: `Error while creating Skill: ${error}` });
     }
   },
   read: async (req, res) => {
     try {
       await dataSource.getRepository(Skill).find();
 
-      res.send("Skills list");
+      res.status(200).send("Skills list");
     } catch (error) {
-      res.send("Error while getting Skills");
+      res.status(500).send({ message: `Error while getting Skill: ${error}` });
     }
   },
   update: async (req, res) => {
     try {
       await dataSource.getRepository(Skill).update(req.body.id, req.body.newData);
 
-      res.send("Skill Updated");
+      res.status(200).send("Skill Updated");
     } catch (error) {
-      res.send("Error while deleting Skill");
+      res.status(500).send({ message: `Error while updating Skill: ${error}` });
     }
   },
-  delete: (req, res) => {
+  delete: async (req, res) => {
     try {
-      dataSource.getRepository(Skill).delete(req.body);
+      await dataSource.getRepository(Skill).delete(req.body);
 
-      res.send("Skill Deleted");
+      res.status(200).send("Skill Deleted");
     } catch (error) {
-      res.send("Error while deleting Skill");
+      res.status(500).send({ message: `Error while deleting Skill: ${error}` });
     }
   },
 };

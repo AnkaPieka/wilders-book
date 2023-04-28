@@ -8,9 +8,9 @@ module.exports = {
     try {
       await dataSource.getRepository(Wilder).save(req.body);
 
-      res.send("Created Wilder");
+      res.status(200).send("Created Wilder");
     } catch (error) {
-      res.send("Error while creating wilder");
+      res.status(200).send({ message: `Error while creating wilder: ${error}` });
     }
   },
   read: async (req, res) => {
@@ -34,18 +34,18 @@ module.exports = {
         return result;
       });
 
-      res.send(data);
+      res.status(200).send(data);
     } catch (error) {
-      res.send("Error while getting wilders!");
+      res.status(500).send({ message: `Error while getting wilder: ${error}` });
     }
   },
   update: async (req, res) => {
     try {
       await dataSource.getRepository(Wilder).update(req.body.id, req.body.newData);
 
-      res.send("Wilder Updated");
+      res.status(200).send({ message: "Wilder Updated" });
     } catch (error) {
-      res.send("Error while updating wilder:", error);
+      res.status(500).send({ message: `Error while updating wilder: ${error}` });
     }
   },
   delete: async (req, res) => {
@@ -53,9 +53,9 @@ module.exports = {
       await dataSource.getRepository(Grades).delete(req.body);
       await dataSource.getRepository(Wilder).delete(req.body);
 
-      res.send("Wilder & associated Grade Deleted");
+      res.status(200).send({ message: `Deleted successfully` });
     } catch (error) {
-      res.send("Error while deleting wilder", error);
+      res.status(500).send({ message: `Error while deleting wilder: ${error}` });
     }
   },
 };

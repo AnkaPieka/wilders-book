@@ -1,9 +1,9 @@
 import axios from "axios";
+import PropTypes from "prop-types";
 import React from "react";
 import profilePic from "../../assets/pic_profile_wilder.png";
 import Skills from "../Skills/Skills";
 import styles from "./Wilder.module.css";
-import PropTypes from "prop-types";
 
 function Wilder({ id, name, city, skills, setWilders }) {
   const handleDeleteWilder = () => {

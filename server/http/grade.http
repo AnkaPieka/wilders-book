@@ -5,14 +5,11 @@ POST http://localhost:5000/api/grade
 Content-Type: application/json
 
 {
-    "grade": 0,
-    "wilder": "Michael Scott",
-    "skill": "HTML"
+    "grade": 10,
+    "wilder": "Pamela Beesly",
+    "skill": "CSS"
 }
 
 ###
-DELETE http://localhost:5000/api/grade
-
-{
-    "wilderId": 2, 
-}
+DELETE http://localhost:5000/api/grade/delete/12
+Content-Type: application/json
