@@ -6,10 +6,10 @@ Content-Type: application/json
 
 {
     "grade": 10,
-    "wilder": "Pamela Beesly",
+    "wilder": "Pam",
     "skill": "CSS"
 }
 
-###
-DELETE http://localhost:5000/api/grade/delete/12
-Content-Type: application/json
+
+# DELETE http://localhost:5000/api/grade/delete/2
+# Content-Type: application/json

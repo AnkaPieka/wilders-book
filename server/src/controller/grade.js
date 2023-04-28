@@ -34,13 +34,13 @@ module.exports = {
       res.status(500).send({ message: `Error while updating wilder: ${error}` });
     }
   },
-  delete: async (req, res) => {
-    try {
-      await dataSource.getRepository(Grade).delete(req.params.id);
+  // delete: async (req, res) => {
+  //   try {
+  //     await dataSource.getRepository(Grade).delete(req.params.id);
 
-      res.status(200).send("Grade Deleted");
-    } catch (error) {
-      res.status(500).send({ message: `Error while deleting grade: ${error}` });
-    }
-  },
+  //     res.status(200).send("Grade Deleted");
+  //   } catch (error) {
+  //     res.status(500).send({ message: `Error while deleting grade: ${error}` });
+  //   }
+  // },
 };

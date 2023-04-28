@@ -10,7 +10,7 @@ module.exports = {
 
       res.status(200).send("Created Wilder");
     } catch (error) {
-      res.status(200).send({ message: `Error while creating wilder: ${error}` });
+      res.status(500).send({ message: `Error while creating wilder: ${error}` });
     }
   },
   read: async (req, res) => {
@@ -55,7 +55,7 @@ module.exports = {
 
       res.status(200).send({ message: `Deleted successfully` });
     } catch (error) {
-      res.status(500).send({ message: `Error while deleting wilder: ${error}` });
+      res.status(500).send({ message: `Error while deleting wilder: ${error.message}` });
     }
   },
 };

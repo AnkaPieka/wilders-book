@@ -26,7 +26,7 @@ app.delete("/api/skill", SkillController.delete);
 
 app.get("/api/grade", GradeController.read);
 app.post("/api/grade", GradeController.create);
-app.delete("/api/grade/delete/:id", GradeController.delete);
+// app.delete("/api/grade/delete/:id", GradeController.delete);
 
 const start = async () => {
   await dataSource.initialize();

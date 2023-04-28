@@ -12,7 +12,7 @@ function Wilder({ id, name, city, skills, setWilders }) {
       .then(() => {
         setWilders((prevWilder) => prevWilder.filter((wilder) => wilder.id !== id));
       })
-      .catch((err) => console.log("Error while deleting:", err));
+      .catch((err) => console.log("Front error while deleting:", err));
   };
 
   return (
@@ -20,9 +20,16 @@ function Wilder({ id, name, city, skills, setWilders }) {
       <img src={profilePic} alt="wilder profile pic" />
 
       <section>
-        <h3 className={styles.name}>{name}</h3>
+        <>
+          <h3 className={styles.name}>{name}</h3>
+          <h5 className={styles.description}>{city}</h5>
+        </>
 
-        <p className={styles.description}>{city}</p>
+        <p className={styles.description}>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+          incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+          nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
 
         <div className={styles.skills}>
           <Skills skills={skills} />
